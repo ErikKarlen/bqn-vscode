@@ -26,5 +26,4 @@ a=i[1]+": "+i[0];
 	shorts[a]["prefix"] = [i[2]];
 }
 }
-console.log(JSON.stringify(shorts, null, 2));
-
+console.log(JSON.stringify(shorts));
