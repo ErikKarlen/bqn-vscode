@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import * as helpJson from "./help.json";
+import { GlyphsProvider } from './glyphs_provider';
 
 export function activate(context: vscode.ExtensionContext) {
   setupCmdBackslash(context);
@@ -27,6 +28,15 @@ export function activate(context: vscode.ExtensionContext) {
       vscode.languages.registerHoverProvider("bqn", { provideHover })
     );
   }
+
+  // Register the sidebar provider
+  const provider = new GlyphsProvider(context, context.extensionUri);
+  context.subscriptions.push(
+    vscode.window.registerWebviewViewProvider(
+      GlyphsProvider.viewType,
+      provider
+    )
+  );
 }
 
 export function deactivate() {
