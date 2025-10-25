@@ -132,23 +132,24 @@ export class GlyphsProvider implements vscode.WebviewViewProvider {
           border-radius: 3px;
           min-width: 40px;
           text-align: center;
+          font-size: 0.75em;
         }
         /* Category-specific colors (overrides the default 'color' property) */
-        .value { color: var(--vscode-terminal-ansiBrightRed); }
+        .value { color: var(--vscode-terminal-ansiWhite); }
         .function { color: var(--vscode-terminal-ansiBrightGreen); }
-        .modifier { color: var(--vscode-terminal-ansiBrightPurple); }
+        .modifier { color: var(--vscode-terminal-ansiMagenta); }
         .modifier2 { color: var(--vscode-terminal-ansiBrightYellow); }
-        .number { color: var(--vscode-terminal-ansiBrightRed); }
-        .gets { color: var(--vscode-terminal-ansiBrightWhite); }
-        .parens { color: var(--vscode-terminal-ansiBrightWhite); }
+        .number { color: var(--vscode-terminal-ansiRed); }
+        .gets { color: var(--vscode-terminal-ansiWhite); }
+        .parens { color: var(--vscode-terminal-ansiWhite); }
         .bracket { color: var(--vscode-terminal-ansiBrightMagenta); }
-        .brace { color: var(--vscode-terminal-ansiBrightMagenta); }
-        .ligature { color: var(--vscode-terminal-ansiBrightWhite); }
-        .nothing { color: var(--vscode-terminal-ansiBrightRed); }
+        .brace { color: var(--vscode-terminal-ansiMagenta); }
+        .ligature { color: var(--vscode-terminal-ansiWhite); }
+        .nothing { color: var(--vscode-terminal-ansiRed); }
         .separator { color: var(--vscode-terminal-ansiBrightMagenta); }
-        .comment { color: var(--vscode-terminal-ansiBrightBlue); }
+        .comment { color: var(--vscode-terminal-ansiBlue); }
         .string { color: var(--vscode-terminal-ansiBrightBlue); }
-        .other { color: var(--vscode-terminal-ansiBrightWhite); }
+        .other { color: var(--vscode-terminal-ansiWhite); }
         .glyph-button:hover {
           background-color: var(--vscode-button-secondaryHoverBackground);
         }
