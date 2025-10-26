@@ -61,7 +61,7 @@ export class GlyphsProvider implements vscode.WebviewViewProvider {
         // The glyph is the first element of the 'body' array
         const glyph = snippet.body[0];
 
-        // The glyph is the first element of the 'body' array
+        // The prefix is the first element of the 'prefix' array
         const prefix = snippet.prefix[0];
 
         if (glyph) {
