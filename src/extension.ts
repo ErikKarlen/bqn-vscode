@@ -1,7 +1,7 @@
 import * as vscode from "vscode";
 import * as path from "path";
 import * as helpJson from "./help.json";
-import { GlyphsProvider } from './glyphs_provider';
+import { GlyphsProvider } from "./glyphs_provider";
 
 export function activate(context: vscode.ExtensionContext) {
   setupCmdBackslash(context);
@@ -32,10 +32,7 @@ export function activate(context: vscode.ExtensionContext) {
   // Register the sidebar provider
   const provider = new GlyphsProvider(context, context.extensionUri);
   context.subscriptions.push(
-    vscode.window.registerWebviewViewProvider(
-      GlyphsProvider.viewType,
-      provider
-    )
+    vscode.window.registerWebviewViewProvider(GlyphsProvider.viewType, provider)
   );
 }
 
@@ -147,7 +144,10 @@ function provideHover(
   const rawGlyph = document.getText(range);
   const glyph =
     { "𝕎": "𝕨", "𝕏": "𝕩", "𝕗": "𝔽", "𝕘": "𝔾", "𝕤": "𝕊" }[rawGlyph] ?? rawGlyph;
-  const map = helpJson as { glyphs: Record<string, string[]>, system: Record<string, string[]> };
+  const map = helpJson as {
+    glyphs: Record<string, string[]>;
+    system: Record<string, string[]>;
+  };
   const help = map.glyphs[glyph];
   if (help !== undefined) {
     return new vscode.Hover(help, range);
@@ -156,7 +156,10 @@ function provideHover(
   if (wordRange === undefined) {
     return;
   }
-  const beforeRange = new vscode.Range(wordRange.start.translate(0, -1), wordRange.start);
+  const beforeRange = new vscode.Range(
+    wordRange.start.translate(0, -1),
+    wordRange.start
+  );
   const beforeChar = document.getText(beforeRange);
   if (beforeChar !== "•") {
     return;
